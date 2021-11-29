@@ -1,8 +1,60 @@
 import * as S from './content.styled'
 import { SearchIcon, NotificationIcon, DividerIcon } from '../ui/icons'
 import AvatarExample from '../assets/images/avatar-example.png'
+import { Line } from 'react-chartjs-2'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip
+} from 'chart.js'
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip
+)
+
+const data = {
+  labels: Array.from({ length: 22 }, (_, i) => `${i + 1}`),
+  datasets: [
+    {
+      // label: 'Este mês',
+      data: Array.from({ length: 22 }, (_, i) => i * Math.random() * 5),
+      fill: false,
+      backgroundColor: '#FC3C8D',
+      borderColor: '#FC3C8D'
+    },
+    {
+      // label: 'Mês passado',
+      data: Array.from({ length: 22 }, (_, i) => i * Math.random() * 5),
+      fill: false,
+      borderColor: '#A4A6B3'
+    }
+  ]
+}
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {}
+  }
+}
 
 export function Content() {
+  const currency = (n: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2
+    }).format(n)
+  }
   return (
     <S.Wrapper>
       <S.Header>
@@ -37,6 +89,39 @@ export function Content() {
           <S.LabelData>110.000,00</S.LabelData>
         </S.Card>
       </S.Cards>
+      <S.WrapperTrends>
+        <S.WrapperChart>
+          <S.Title>Total de faturamento mensal</S.Title>
+          <S.Text>JULHO 2020</S.Text>
+          <div style={{ display: 'flex', justifyContent: 'end' }}>
+            <S.Span>Este mês</S.Span>
+            <S.Span>Mês passado</S.Span>
+          </div>
+          <Line data={data} options={options} />
+        </S.WrapperChart>
+        <S.AdditionalInfos>
+          <S.Info>
+            <S.LabelText>Loja</S.LabelText>
+            <S.LabelData>Estilo</S.LabelData>
+          </S.Info>
+          <S.Info>
+            <S.LabelText>Mês</S.LabelText>
+            <S.LabelData>Julho</S.LabelData>
+          </S.Info>
+          <S.Info>
+            <S.LabelText>Ano</S.LabelText>
+            <S.LabelData>2020</S.LabelData>
+          </S.Info>
+          <S.Info>
+            <S.LabelText>Total de Faturamento</S.LabelText>
+            <S.LabelData>{currency(450000)}</S.LabelData>
+          </S.Info>
+          <S.Info>
+            <S.LabelText>Análise Comparativa</S.LabelText>
+            <S.LabelData>Positivo</S.LabelData>
+          </S.Info>
+        </S.AdditionalInfos>
+      </S.WrapperTrends>
       <S.WrapperTables>
         <S.Table>
           <S.TableHead>

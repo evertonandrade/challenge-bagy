@@ -114,27 +114,98 @@ export const LabelData = styled.p`
   `}
 `
 
-//
+export const WrapperTrends = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    border: 1px solid ${theme.colors.lightGray};
+    border-radius: 0.8rem;
+    margin-top: 2rem;
+  `}
+`
+export const WrapperChart = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    padding: 2rem;
+
+    ${Title} {
+      font-size: 2rem;
+      margin: 0rem 0rem 1rem 0rem;
+    }
+
+    ${Text} {
+      color: ${theme.colors.gray};
+      font-weight: bold;
+    }
+
+    ${Span} {
+      font-size: 1.6rem;
+      color: ${theme.colors.gray};
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &:nth-child(1) {
+        margin-right: 2rem;
+      }
+
+      &:nth-child(1)::before {
+        content: '';
+        display: block;
+        width: 3rem;
+        height: 0.4rem;
+        border-radius: 0.8rem;
+        background: ${theme.colors.gray};
+      }
+
+      &:nth-child(2)::before {
+        content: '';
+        display: block;
+        width: 3rem;
+        height: 0.4rem;
+        border-radius: 0.8rem;
+        background: ${theme.colors.blue};
+      }
+    }
+  `}
+`
 
 export const AdditionalInfos = styled.div`
   ${() => css`
     display: flex;
     flex-direction: column;
+
+    ${LabelText} {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    ${LabelData} {
+      font-size: 3.2rem;
+    }
   `}
 `
 
-export const FullGraph = styled.div`
-  ${() => css`
+export const Info = styled.div`
+  ${({ theme }) => css`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem 0.8rem;
+    width: 32rem;
+    height: 100%;
+    border-left: 1px solid ${theme.colors.lightGray};
+    border-bottom: 1px solid ${theme.colors.lightGray};
+    &:last-child {
+      border-bottom: 0;
+    }
   `}
 `
-
-//
 
 export const WrapperTables = styled.div`
   ${() => css`
     display: flex;
-    margin-top: 3rem;
+    margin-top: 2rem;
     gap: 2rem;
   `}
 `
@@ -207,7 +278,7 @@ export const Span = styled.span<{
   weight?: string
 }>`
   ${({ theme, color, background, weight }) => css`
-    background: ${theme.colors[background ?? 'white']};
+    background: ${background ? theme.colors[background] : 'none'};
     color: ${background ? theme.colors.white : theme.colors[color ?? 'black']};
     font-weight: ${weight ?? 'normal'};
     padding: 0.8rem;

@@ -74,7 +74,7 @@ export const NavLink = styled.a`
 
 export const Divider = styled.hr`
   ${() => css`
-    margin: 2rem 0rem;
+    margin: 4rem 0rem;
     border: none;
   `}
 `
