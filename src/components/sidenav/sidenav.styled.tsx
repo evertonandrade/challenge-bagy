@@ -1,5 +1,5 @@
+import { NavLink as N } from 'react-router-dom'
 import styled, { css } from 'styled-components'
-import { SettingsIcon } from '../../ui/icons'
 
 export const Wrapper = styled.aside`
   ${({ theme }) => css`
@@ -31,9 +31,10 @@ export const NavList = styled.ul`
   `}
 `
 
-export const NavItem = styled.li`
+export const NavItem = styled(N)`
   ${({ theme }) => css`
     cursor: pointer;
+    text-decoration: none;
     &.active > ${NavLink} {
       color: ${theme.colors.white};
       background: linear-gradient(to right, #463746, transparent);
@@ -53,7 +54,7 @@ export const NavItem = styled.li`
   `}
 `
 
-export const NavLink = styled.a`
+export const NavLink = styled.li`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
@@ -61,8 +62,8 @@ export const NavLink = styled.a`
     position: relative;
     transition: all 0.3s ease;
 
-    ${SettingsIcon} {
-      fill: ${theme.colors.pink};
+    &:nth-child(n) {
+      color: ${theme.colors.gray};
     }
 
     &:hover,

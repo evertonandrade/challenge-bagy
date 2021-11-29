@@ -154,7 +154,7 @@ export const WrapperChart = styled.div`
         width: 3rem;
         height: 0.4rem;
         border-radius: 0.8rem;
-        background: ${theme.colors.gray};
+        background: ${theme.colors.blue};
       }
 
       &:nth-child(2)::before {
@@ -163,7 +163,7 @@ export const WrapperChart = styled.div`
         width: 3rem;
         height: 0.4rem;
         border-radius: 0.8rem;
-        background: ${theme.colors.blue};
+        background: ${theme.colors.gray};
       }
     }
   `}
