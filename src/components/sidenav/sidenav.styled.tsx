@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { SettingsIcon } from '../ui/icons'
+import { SettingsIcon } from '../../ui/icons'
 
 export const Wrapper = styled.aside`
   ${({ theme }) => css`

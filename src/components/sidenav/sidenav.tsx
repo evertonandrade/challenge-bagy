@@ -1,5 +1,5 @@
 import * as S from './sidenav.styled'
-import { Logo } from '../ui/logo'
+import { Logo } from '../../ui/logo'
 import {
   ChartPieIcon,
   TicketIcon,
@@ -9,7 +9,7 @@ import {
   BookIcon,
   SettingsIcon,
   MedalIcon
-} from '../ui/icons'
+} from '../../ui/icons'
 
 export function Sidenav() {
   return (

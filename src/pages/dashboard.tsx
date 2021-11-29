@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Content } from './components/content'
-import { Sidenav } from './components/sidenav'
+import { Overview } from '../components/overview'
+import { Sidenav } from '../components/sidenav'
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export function Dashboard() {
   return (
     <Container>
       <Sidenav />
-      <Content />
+      <Overview />
     </Container>
   )
 }
