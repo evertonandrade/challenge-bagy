@@ -1,23 +1,52 @@
-import styled from 'styled-components'
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { useEffect, useState, MouseEvent } from 'react'
+import { Container, Content } from './dashboard.styled'
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom'
+import { Header } from '../components/header'
 import { Customers } from '../components/customers'
 import { Overview } from '../components/overview'
 import { Plans } from '../components/plans'
 import { Products } from '../components/products'
 import { Sales } from '../components/sales'
 import { Settings } from '../components/settings'
-import { Shops } from '../components/shops'
+import { Stores } from '../components/stores'
 import { Sidenav } from '../components/sidenav'
+import client from '../graphql/client'
+import { tokens } from '../graphql/tokens'
+import GET_CONSOLIDATED_ORDERS from '../graphql/queries/getConsolidatedOrders'
+import { sidenavData } from '../components/sidenav/sidenav-data'
 
 export function Dashboard() {
+  const location = useLocation()
+  const [title, setTitle] = useState('')
+
+  useEffect(() => {
+    setTitle(sidenavData.find((s) => s.path === location.pathname)?.title ?? '')
+    getConsolidatedOrders()
+  }, [location])
+
+  const getConsolidatedOrders = async () => {
+    client.setHeaders({
+      'Content-Type': 'application/json',
+      'x-auth-token': tokens.store_1
+    })
+    const data = await client.request(GET_CONSOLIDATED_ORDERS)
+    console.log(data)
+  }
+
+  const handleClick = (title: string) => (event: MouseEvent) => {
+    console.log(event)
+    setTitle(title)
+  }
+
   return (
     <Container>
-      <BrowserRouter>
-        <Sidenav />
+      <Sidenav onClickedItem={handleClick} />
+      <Content>
+        <Header title={title} />
         <Routes>
           <Route path="/" element={<Navigate replace to="/overview" />} />
           <Route path="/overview" element={<Overview />} />
-          <Route path="/shops" element={<Shops />} />
+          <Route path="/stores" element={<Stores />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/products" element={<Products />} />
@@ -25,13 +54,7 @@ export function Dashboard() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/exit" element={<Navigate replace to="/overview" />} />
         </Routes>
-      </BrowserRouter>
+      </Content>
     </Container>
   )
 }
-
-const Container = styled.div`
-  display: flex;
-  height: 100%;
-  min-height: 100vh;
-`

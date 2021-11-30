@@ -1,32 +1,10 @@
 import * as S from './overview.styled'
-import { SearchIcon, NotificationIcon, DividerIcon } from '../../ui/icons'
-import AvatarExample from '../../assets/images/avatar-example.png'
 import { LineChart } from '../line-chart'
+import * as format from '../../utils/format'
 
 export function Overview() {
-  const currency = (n: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2
-    }).format(n)
-  }
   return (
     <S.Wrapper>
-      <S.Header>
-        <S.Title>Visão Geral</S.Title>
-        <S.Panel>
-          <S.Tray>
-            <SearchIcon />
-            <NotificationIcon />
-            <DividerIcon />
-          </S.Tray>
-          <S.Profile>
-            <S.Text>Matheus Borges</S.Text>
-            <S.Avatar src={AvatarExample} />
-          </S.Profile>
-        </S.Panel>
-      </S.Header>
       <S.Cards>
         <S.Card>
           <S.LabelText>Total de Lojas</S.LabelText>
@@ -70,7 +48,7 @@ export function Overview() {
           </S.Info>
           <S.Info>
             <S.LabelText>Total de Faturamento</S.LabelText>
-            <S.LabelData>{currency(450000)}</S.LabelData>
+            <S.LabelData>{format.currency(450000)}</S.LabelData>
           </S.Info>
           <S.Info>
             <S.LabelText>Análise Comparativa</S.LabelText>
@@ -81,8 +59,10 @@ export function Overview() {
       <S.WrapperTables>
         <S.Table>
           <S.TableHead>
-            <S.TextTotal>Total de compras</S.TextTotal>
-            <S.TextValue>Valor geral: 13.250,00</S.TextValue>
+            <S.TableRow>
+              <S.TextTotal>Total de compras</S.TextTotal>
+              <S.TextValue>Valor geral: 13.250,00</S.TextValue>
+            </S.TableRow>
           </S.TableHead>
           <S.TableBody>
             <S.TableRow>
@@ -122,30 +102,48 @@ export function Overview() {
               <S.TableData>Brincos #23</S.TableData>
               <S.TableData>Estilo Pri</S.TableData>
               <S.TableData>
-                <S.Span background="blue">R$ 29,90</S.Span>
+                <S.Span background="blue">{format.currency(29.9)}</S.Span>
               </S.TableData>
               <S.TableData>
-                <S.Span background="yellow">17/07/20</S.Span>
-              </S.TableData>
-            </S.TableRow>
-            <S.TableRow>
-              <S.TableData>Brincos #23</S.TableData>
-              <S.TableData>Estilo Pri</S.TableData>
-              <S.TableData>
-                <S.Span background="blue">R$ 29,90</S.Span>
-              </S.TableData>
-              <S.TableData>
-                <S.Span background="yellow">17/07/20</S.Span>
+                <S.Span background="yellow">
+                  {format.date(new Date('07-17-2020'))}
+                </S.Span>
               </S.TableData>
             </S.TableRow>
             <S.TableRow>
-              <S.TableData>Brincos #23</S.TableData>
-              <S.TableData>Estilo Pri</S.TableData>
+              <S.TableData>Sandália #54</S.TableData>
+              <S.TableData>Vilma Calçados</S.TableData>
               <S.TableData>
-                <S.Span background="blue">R$ 29,90</S.Span>
+                <S.Span background="blue">{format.currency(89.9)}</S.Span>
               </S.TableData>
               <S.TableData>
-                <S.Span background="yellow">17/07/20</S.Span>
+                <S.Span background="yellow">
+                  {format.date(new Date('07-17-2020'))}
+                </S.Span>
+              </S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>Conjunto #95</S.TableData>
+              <S.TableData>Mary Lingerie</S.TableData>
+              <S.TableData>
+                <S.Span background="blue">{format.currency(49.9)}</S.Span>
+              </S.TableData>
+              <S.TableData>
+                <S.Span background="yellow">
+                  {format.date(new Date('07-17-2020'))}
+                </S.Span>
+              </S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>Conjunto #95</S.TableData>
+              <S.TableData>Mary Lingerie</S.TableData>
+              <S.TableData>
+                <S.Span background="blue">{format.currency(49.9)}</S.Span>
+              </S.TableData>
+              <S.TableData>
+                <S.Span background="yellow">
+                  {format.date(new Date('07-17-2020'))}
+                </S.Span>
               </S.TableData>
             </S.TableRow>
           </S.TableBody>

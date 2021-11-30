@@ -9,7 +9,7 @@ import {
   MedalIcon
 } from '../../ui/icons'
 
-export const SidebarData = [
+export const sidenavData = [
   {
     title: 'Visão geral',
     path: '/overview',
@@ -17,7 +17,7 @@ export const SidebarData = [
   },
   {
     title: 'Lojas',
-    path: '/shops',
+    path: '/stores',
     icon: <TicketIcon />
   },
   {
@@ -51,3 +51,5 @@ export const SidebarData = [
     icon: <MedalIcon />
   }
 ]
+
+export const intialRoute = '/overview'
