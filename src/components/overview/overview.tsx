@@ -68,21 +68,42 @@ export function Overview() {
                 <S.Span weight="bold">Estilo Pri</S.Span>
               </S.TableData>
               <S.TableData>250 compras</S.TableData>
-              <S.TableData>R$ 29,90</S.TableData>
+              <S.TableData>{format.currency(29.9)}</S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>
+                <S.Span weight="bold">Vilma Calçados</S.Span>
+              </S.TableData>
+              <S.TableData>187 compras</S.TableData>
+              <S.TableData>{format.currency(1005)}</S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>
+                <S.Span weight="bold">Mary Langeire</S.Span>
+              </S.TableData>
+              <S.TableData>124 compras</S.TableData>
+              <S.TableData>{format.currency(914)}</S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>
+                <S.Span weight="bold">Loja Belíssima</S.Span>
+              </S.TableData>
+              <S.TableData>89 compras</S.TableData>
+              <S.TableData>{format.currency(281)}</S.TableData>
             </S.TableRow>
             <S.TableRow>
               <S.TableData>
                 <S.Span weight="bold">Estilo Pri</S.Span>
               </S.TableData>
               <S.TableData>250 compras</S.TableData>
-              <S.TableData>R$ 29,90</S.TableData>
+              <S.TableData>{format.currency(29.9)}</S.TableData>
             </S.TableRow>
             <S.TableRow>
               <S.TableData>
                 <S.Span weight="bold">Estilo Pri</S.Span>
               </S.TableData>
               <S.TableData>250 compras</S.TableData>
-              <S.TableData>R$ 29,90</S.TableData>
+              <S.TableData>{format.currency(29.9)}</S.TableData>
             </S.TableRow>
           </S.TableBody>
         </S.Table>
@@ -113,6 +134,30 @@ export function Overview() {
               <S.TableData>Vilma Calçados</S.TableData>
               <S.TableData>
                 <S.Span background="blue">{format.currency(89.9)}</S.Span>
+              </S.TableData>
+              <S.TableData>
+                <S.Span background="yellow">
+                  {format.date(new Date('07-17-2020'))}
+                </S.Span>
+              </S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>Conjunto #95</S.TableData>
+              <S.TableData>Mary Lingerie</S.TableData>
+              <S.TableData>
+                <S.Span background="blue">{format.currency(49.9)}</S.Span>
+              </S.TableData>
+              <S.TableData>
+                <S.Span background="yellow">
+                  {format.date(new Date('07-17-2020'))}
+                </S.Span>
+              </S.TableData>
+            </S.TableRow>
+            <S.TableRow>
+              <S.TableData>Conjunto #95</S.TableData>
+              <S.TableData>Mary Lingerie</S.TableData>
+              <S.TableData>
+                <S.Span background="blue">{format.currency(49.9)}</S.Span>
               </S.TableData>
               <S.TableData>
                 <S.Span background="yellow">
