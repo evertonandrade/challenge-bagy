@@ -22,16 +22,15 @@ const data = {
   labels: Array.from({ length: 22 }, (_, i) => `${i + 1}`),
   datasets: [
     {
-      // label: 'Este mês',
       data: Array.from({ length: 22 }, (_, i) => i * Math.random() * 5),
       fill: false,
       backgroundColor: '#FC3C8D',
       borderColor: '#FC3C8D'
     },
     {
-      // label: 'Mês passado',
       data: Array.from({ length: 22 }, (_, i) => i * Math.random() * 5),
       fill: false,
+      backgroundColor: '#A4A6B3',
       borderColor: '#A4A6B3'
     }
   ]
