@@ -1,6 +1,6 @@
 import * as S from './overview.styled'
-import { LineChart } from '../line-chart'
 import * as format from '../../utils/format'
+import { LineChart } from '../line-chart'
 
 export function Overview() {
   return (
@@ -27,10 +27,10 @@ export function Overview() {
         <S.WrapperChart>
           <S.Title>Total de faturamento mensal</S.Title>
           <S.Text>JULHO 2020</S.Text>
-          <div style={{ display: 'flex', justifyContent: 'end' }}>
+          <S.Indicators>
             <S.Span>Este mês</S.Span>
             <S.Span>Mês passado</S.Span>
-          </div>
+          </S.Indicators>
           <LineChart />
         </S.WrapperChart>
         <S.AdditionalInfos>
@@ -58,12 +58,10 @@ export function Overview() {
       </S.WrapperTrends>
       <S.WrapperTables>
         <S.Table>
-          <S.TableHead>
-            <S.TableRow>
-              <S.TextTotal>Total de compras</S.TextTotal>
-              <S.TextValue>Valor geral: 13.250,00</S.TextValue>
-            </S.TableRow>
-          </S.TableHead>
+          <S.WrapperTableHead>
+            <S.TextTotal>Total de compras</S.TextTotal>
+            <S.TextValue>Valor geral: 13.250,00</S.TextValue>
+          </S.WrapperTableHead>
           <S.TableBody>
             <S.TableRow>
               <S.TableData>

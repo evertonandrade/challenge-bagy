@@ -122,6 +122,14 @@ export const WrapperChart = styled.div`
   `}
 `
 
+export const Indicators = styled.div`
+  ${() => css`
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  `}
+`
+
 export const AdditionalInfos = styled.div`
   ${() => css`
     display: flex;
@@ -177,6 +185,14 @@ export const TableHead = styled.thead`
     table-layout: fixed;
     display: table;
     width: calc(100% - 1em);
+    margin: 2rem 0rem;
+  `}
+`
+
+export const WrapperTableHead = styled.div`
+  ${() => css`
+    display: flex;
+    flex-direction: column;
     margin: 2rem 0rem;
   `}
 `
